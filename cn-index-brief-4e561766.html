@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>杂志专题 · 重访世界杯 | cn-index-united2026</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f1f3f5;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      color: #2e2e2e;
+      line-height: 1.7;
+      padding: 2rem 1.2rem;
+    }
+
+    .magazine {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+
+    /* 首页横幅 Hero */
+    .hero {
+      background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+      border: 1px solid #e0e4e8;
+      border-radius: 2.5rem;
+      padding: 3rem 2.2rem 2.5rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.02);
+      margin-bottom: 2.5rem;
+      text-align: center;
+      transition: box-shadow 0.2s;
+    }
+
+    .hero:hover {
+      box-shadow: 0 12px 32px rgba(0,0,0,0.07);
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #1f2937;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .subhead {
+      font-size: 1.1rem;
+      color: #64748b;
+      border-top: 1px solid #dde1e6;
+      display: inline-block;
+      padding-top: 0.75rem;
+      margin-top: 0.4rem;
+    }
+
+    .hero .subhead span {
+      background: #eef0f3;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #2f3e53;
+    }
+
+    /* 背景说明卡片 */
+    .context-card {
+      background: #ffffff;
+      border: 1px solid #e3e7ed;
+      border-radius: 2rem;
+      padding: 2rem 2rem 1.8rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .context-card h2 {
+      font-size: 1.6rem;
+      font-weight: 470;
+      margin-bottom: 1.2rem;
+      color: #1e293b;
+      border-left: 5px solid #9aa9b9;
+      padding-left: 1rem;
+    }
+
+    .context-card p {
+      margin-bottom: 1.2rem;
+      color: #3b4252;
+    }
+
+    .context-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 三段自然介绍 - 卡片网格 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .feature-item {
+      background: #ffffff;
+      border: 1px solid #e0e5ec;
+      border-radius: 1.8rem;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+
+    .feature-item .icon-symbol {
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+      opacity: 0.7;
+    }
+
+    .feature-item h3 {
+      font-weight: 500;
+      font-size: 1.25rem;
+      margin-bottom: 0.7rem;
+      color: #1f2a3f;
+    }
+
+    .feature-item p {
+      font-size: 0.95rem;
+      color: #4a5568;
+    }
+
+    /* FAQ摘要 / 附加段落 */
+    .faq-summary {
+      background: #ffffff;
+      border: 1px solid #e2e6ed;
+      border-radius: 2rem;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .faq-summary h2 {
+      font-size: 1.3rem;
+      font-weight: 470;
+      margin-bottom: 0.8rem;
+      color: #1f2937;
+    }
+
+    .faq-summary details {
+      margin-bottom: 0.6rem;
+      border-bottom: 1px dashed #e0e4eb;
+      padding-bottom: 0.4rem;
+    }
+
+    .faq-summary details[open] summary {
+      color: #1e3a5f;
+    }
+
+    .faq-summary summary {
+      cursor: pointer;
+      font-weight: 460;
+      padding: 0.3rem 0;
+      color: #2d3f5e;
+    }
+
+    .faq-summary summary::marker {
+      color: #8899b0;
+    }
+
+    .faq-summary .answer {
+      margin: 0.5rem 0 0.8rem 1rem;
+      color: #4a5b72;
+      font-size: 0.95rem;
+    }
+
+    /* 页尾访问提示 */
+    .footer-note {
+      border-top: 1px solid #d9dee5;
+      padding-top: 1.8rem;
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-note p {
+      color: #4a5a72;
+      max-width: 540px;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .footer-note .bookmark-hint {
+      background: #eef2f7;
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.9rem;
+      color: #1e2f40;
+      border: 1px solid #d6dce5;
+      display: inline-block;
+    }
+
+    .footer-note a {
+      text-decoration: none;
+      transition: background 0.15s, border-color 0.15s;
+      border-bottom: 2px solid transparent;
+    }
+
+    .footer-note a:hover {
+      border-bottom-color: #6c7e9c;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 640px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero {
+        padding: 2rem 1.2rem;
+      }
+      .feature-grid {
+        gap: 1rem;
+      }
+      .context-card h2 {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* 内联链接风格（通用） */
+    .inline-link {
+      color: #1f3a66;
+      font-weight: 480;
+      text-decoration: none;
+      border-bottom: 1px solid #a2b6cd;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .inline-link:hover {
+      color: #0b1f36;
+      border-bottom-color: #1f3a66;
+    }
+
+    /* 特殊：句子中的链接保持自然 */
+    .sentence-link {
+      font-weight: 460;
+    }
+
+    .thin-sep {
+      height: 0;
+      border: 0;
+      border-top: 1px solid #e2e7ef;
+      margin: 1.2rem 0;
+    }
+  </style>
+</head>
+<body>
+<div class="magazine">
+
+  <!-- 首页横幅 -->
+  <header class="hero">
+    <h1>重访 · 2026</h1>
+    <div class="subhead">
+      <span>杂志专题</span>  &nbsp; 再次聚焦 世界杯
+    </div>
+    <div style="margin-top: 1.2rem; font-size: 0.95rem; color: #5a6c82;">
+      收藏此刻，持续关注
+    </div>
+  </header>
+
+  <!-- 背景说明 -->
+  <section class="context-card">
+    <h2>从再次访问开始</h2>
+    <p>
+      有些页面值得不止一次打开。距离上一次完整浏览已经过去一段时间，但关于 <a href="https://cn-index-united2026.com" class="inline-link">世界杯</a> 的讨论、数据与故事，始终在悄悄更新。与其从零开始搜索，不如把同一个入口放在手边——这里依然是那片信息聚合地。
+    </p>
+    <p>
+      无论你是偶然翻到旧书签，还是特意回来核对赛程或历史纪录，cn-index-united2026.com 的页面结构保持着清晰的索引风格。你上次看到的背景专题仍在，同时页面背后的内容也在缓慢生长。
+    </p>
+  </section>
+
+  <!-- 三段自然介绍（卡片区域） -->
+  <div class="feature-grid">
+    <div class="feature-item">
+      <div class="icon-symbol">📌</div>
+      <h3>收藏即锚点</h3>
+      <p>
+        把页面加入书签，等于为自己留一个安静的落脚点。当你需要快速回顾赛事脉络、球队档案或历史数据时，不必重新适应新的界面。
+      </p>
+    </div>
+    <div class="feature-item">
+      <div class="icon-symbol">🔄</div>
+      <h3>持续关注的价值</h3>
+      <p>
+        很多信息不是一次性能读完的。随着时间推移，同样的页面可能承载新的补充内容或修正。习惯性回访，能让你抓住那些容易被忽略的细节。
+      </p>
+    </div>
+    <div class="feature-item">
+      <div class="icon-symbol">🧩</div>
+      <h3>日常与专题之间</h3>
+      <p>
+        <a href="https://cn-index-united2026.com" class="inline-link">世界杯</a> 不只是四年的盛会，也是日常谈资与记忆坐标。这个站点试图在碎片资讯和深度专题之间找到平衡——适合随手翻阅，也适合沉下来浏览。
+      </p>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 + 附加段落 -->
+  <div class="faq-summary">
+    <h2>一些常被问起的事情 · 摘要</h2>
+    <details>
+      <summary>页面会频繁变化吗？</summary>
+      <div class="answer">结构上保持稳定，但内容会随信息更新而调整。你不必担心每次打开都像进入一个新网站。</div>
+    </details>
+    <details>
+      <summary>我上次看到的文章还在吗？</summary>
+      <div class="answer">主要专题和背景说明会长期保留，部分时效性强的条目可能会归档。书签始终指向最新的索引页。</div>
+    </details>
+    <details>
+      <summary>为什么推荐再次访问？</summary>
+      <div class="answer">因为静态页面无法主动推送更新。只有当你再次打开时，才能发现那些细微的修改或新增的链接——这也是持续关注的意义。</div>
+    </details>
+    <div style="margin-top: 1rem; font-size: 0.9rem; color: #5a697e;">
+      如果你对某个具体话题有疑问，可以试着在站内索引中寻找线索。
+    </div>
+  </div>
+
+  <!-- 页尾访问提示 -->
+  <footer class="footer-note">
+    <p>
+      你之前可能已经到过这里，但页面安静地等你回来。下次想要查找关于 <a href="https://cn-index-united2026.com" class="inline-link sentence-link">世界杯</a> 的资料时，不妨直接打开书签。
+    </p>
+    <div class="bookmark-hint">
+      ⭐ 添加到收藏夹 · 方便再次访问
+    </div>
+    <div style="margin-top: 0.8rem; font-size: 0.85rem; color: #6d7f95;">
+      cn-index-united2026.com  ·  索引 · 专题
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
